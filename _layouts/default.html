@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ page.title }}</title>
+  <!-- link to main stylesheet -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+  {% else %}
+  <meta name="description" content="{{ page.title }}">
+  {% endif %}
+
+  <meta name="author" content="sittingjohn.se">
+  <meta name="contact" content="jj@sittingjohn.se">
+  <meta name="copyright" content="Copyright © Sitting John.">
+
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="site.css">
+
+</head>
+
+<body class="layout-column">
+  <header>
+    <div class="content">
+      <div class="layout-row space-between" style="align-items: center;">
+        <a href="/" class="logo">
+          <img src="assets/cropped-Sitting-John-lgo.png" alt="Sitting John logo" />
+        </a>
+
+        <nav>
+          <ul>
+            <li>
+              <a class="brands" href="/#brands">Brands</a>
+            </li>
+            <li>
+              <a class="about" href="/#about">About us</a>
+            </li>
+            <li>
+              <a class="contact" href="/#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex">
+    {{ content }}
+  </div>
+  <footer>
+
+    <div class="content layout-row space-between">
+      <ul>
+        <li><i class="material-icons">phone</i><a href="tel:+46 (0) 31 761 2000">+46
+            (0) 31 761 2000</a></li>
+        <li><i class="material-icons">mail</i> <a href="mailto:info@sittingjohn.se">info@sittingjohn.se</a></li>
+        <li><i class="material-icons">location_on</i> <a target="_blank" href="https://www.google.com/maps/place/Sitting+John/@57.6951558,11.9541622,17z/data=!3m1!4b1!4m5!3m4!1s0x464ff36b03cc5f35:0x2b211413fda2f5de!8m2!3d57.695153!4d11.9563509">Kastellgatan
+            1 <br /><b>Gothenburg, Sweden</b></a></li>
+      </ul>
+
+      <div style="max-width: 300px;">
+        <h6>About Sitting John</h6>
+        <p>
+          Since 2007 Sitting John AB distributes branded footwear in Denmark, Finland, Iceland, Norway and Sweden.
+        </p>
+        <p><span class="year"></span> Sitting John</p>
+      </div>
+    </div>
+    <script>
+      var now = new Date().getFullYear();
+      document.querySelector('.year').textContent = '@' + now
+
+      if (window.location.href.indexOf('dotnetmentor.se') > -1) {
+        var navlinks = document.querySelectorAll('nav ul li a')
+
+        navlinks.forEach(link => {
+          link.setAttribute('href', "/sittingjohn#" + link.className)
+        });
+
+        var logo = document.querySelector('.logo')
+        logo.setAttribute('href', "/sittingjohn")
+      }
+    </script>
+  </footer>
+</body>
+
+</html>
